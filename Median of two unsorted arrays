@@ -1,0 +1,22 @@
+class Solution {
+    public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+      List<Integer> list1 = Arrays.stream(nums1).boxed().toList();
+    List<Integer> list2 = Arrays.stream(nums2).boxed().toList();
+
+       List<Integer> merge = new ArrayList<Integer>();
+        merge.addAll(list1);
+        merge.addAll(list2);
+        double median;
+       
+        Collections.sort(merge);
+
+        if(merge.size()%2 == 0){
+            median = ((double)merge.get(merge.size()/2) + 
+                      (double)merge.get(merge.size()/2 - 1))/2;
+            
+        }else {
+             median = (double) merge.get(merge.size()/2);
+        }
+       return median; 
+    } 
+}
